@@ -1,3 +1,6 @@
+/*
+   This is a reference document for Go.sugar
+*/
 package main
 
 import (
@@ -7,11 +10,23 @@ import (
 	"os"
 )
 
+type Point struct {
+	x, y int
+}
+
+func (p Point) String() string {
+	return fmt.Sprintf("point{x:%v, y:%v}", p.x, p.y)
+}
+
 var port = flag.String("http", ":8080", "bind port for http server")
 
 func homepageHandler(w http.ResponseWriter, r *http.Request) {
+	// create a Point
+	p := &Point{2, 3}
+
+	// set the content type
 	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprintf(w, "Hello, Espresso!")
+	fmt.Fprintf(w, "Hello, Espresso!\n%v\n", p)
 }
 
 func main() {
