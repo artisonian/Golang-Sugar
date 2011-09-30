@@ -38,6 +38,16 @@
                     <capture number="0" name="punctuation.end" />
                 </ends-with>
             </zone>
+            <zone name="string.literal">
+                <starts-with>
+                    <expression>`</expression>
+                    <capture number="0" name="punctuation.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>`</expression>
+                    <capture number="0" name="punctuation.end" />
+                </ends-with>
+            </zone>
         </collection>
     </library>
 

@@ -21,6 +21,10 @@ func (p Point) String() string {
 var port = flag.String("http", ":8080", "bind port for http server")
 
 func homepageHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, page)
+}
+
+func pointHandler(w http.ResponseWriter, r *http.Request) {
 	// create a Point
 	p := &Point{2, 3}
 
@@ -33,3 +37,15 @@ func main() {
 	http.HandleFunc("/", homepageHandler)
 	http.ListenAndServe(*port, nil)
 }
+
+const page = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <h1>Homepage</h1>
+  </body>
+</html>
+`
