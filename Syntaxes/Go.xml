@@ -4,6 +4,7 @@
     <zones>
         <include collection="comments" />
         <include collection="strings" />
+        <include collection="keywords" />
     </zones>
     
     <library>
@@ -47,6 +48,24 @@
                     <expression>`</expression>
                     <capture number="0" name="punctuation.end" />
                 </ends-with>
+            </zone>
+        </collection>
+        
+        <collection name="keywords">
+            <zone name="keyword.control">
+                <expression>\b(break|case|continue|default|defer|else|fallthrough|for|goto|if|range|return|select|switch)\b</expression>
+            </zone>
+            <zone name="keyword.storage">
+                <expression>\b(const|type|var)\b</expression>
+            </zone>
+            <zone name="keyword.types">
+                <expression>\b(chan|interface|map|struct)\b</expression>
+            </zone>
+            <zone name="keyword.function">
+                <expression>\b(func|go)\b</expression>
+            </zone>
+            <zone name="keyword.import">
+                <expression>\b(import|package)\b</expression>
             </zone>
         </collection>
     </library>
