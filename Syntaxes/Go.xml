@@ -3,6 +3,7 @@
 
     <zones>
         <include collection="comments" />
+        <include collection="strings" />
     </zones>
     
     <library>
@@ -22,6 +23,19 @@
                 <ends-with>
                     <expression>\*/</expression>
                     <capture number="0" name="punctuation.end"/>
+                </ends-with>
+            </zone>
+        </collection>
+        
+        <collection name="strings">
+            <zone name="string.quoted">
+                <starts-with>
+                    <expression>"</expression>
+                    <capture number="0" name="punctuation.begin" />
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="punctuation.end" />
                 </ends-with>
             </zone>
         </collection>
