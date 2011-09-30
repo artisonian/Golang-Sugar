@@ -1,4 +1,20 @@
 <?xml version="1.0"?>
 <syntax name="language-root.go">
 
+    <zones>
+        <include collection="comments" />
+    </zones>
+    
+    <library>
+        <collection name="comments">
+            <zone name="comment.line">
+                <starts-with>
+                    <expression>(//)</expression>
+                    <capture number="1" name="punctuation.begin" />
+                </starts-with>
+                <ends-with>$[\n\r]*</ends-with>
+            </zone>
+        </collection>
+    </library>
+
 </syntax>
